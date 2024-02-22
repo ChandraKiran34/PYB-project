@@ -55,7 +55,7 @@ export const loginHotel = async (req, res) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ id: hotel._id, email: hotel.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id: hotel._id, role:"hotel" }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(200).json({ token });
   } catch (error) {
